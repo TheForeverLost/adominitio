@@ -1,0 +1,12 @@
+<div>
+    <div class="toolbar" role="banner">
+        <span class="spanner" (click) = "leavearchive()">NOTES</span>
+        <div class="spacer"></div>
+        
+        <div class="spacer"></div><span class="spanner">LOGOUT</span>
+    </div>
+   
+    <p *ngIf = "!nodeexist" ><span>{{ load }} </span></p>
+    
+    <app-card *ngFor="let todo of tasklist" [task] = "todo" (updateArchive) = "updateArchive($event)" (updateLabel) = "updateLabel($event)" (deleteNote)="deleteNote($event)"></app-card>
+</div>

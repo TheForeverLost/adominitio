@@ -1,0 +1,104 @@
+* { box-sizing: border-box; margin: 0; padding:0; }
+
+h2 {
+    text-align: center;
+    font-weight: 200;
+    font-size: 2em;
+    margin-top: 10px;
+    color: #ffffff;
+  }
+
+  input[type="text"],
+      input[type="password"],
+      button {
+        width: 80%;
+        margin-left: 10%;
+        margin-bottom: 25px;
+        height: 40px;
+        border-radius: 5px;
+        outline: 0;
+        
+      }
+      input[type="text"],
+      input[type="password"] {
+        border: 1px solid #bbb;
+        padding: 0 0 0 10px;
+        font-size: 14px;
+        
+      }
+
+      input[type = "text"]:focus , input[type : "password"] {
+        border: 1px solid #3498db;
+      }
+
+      p{
+        padding-bottom: 10px;
+        text-align: center;
+        font-size: 20px;
+        opacity: 0.6 ;
+        
+        color: #fafdff;
+      }
+
+      .name {
+        font-weight: 700;
+        font-stretch: expanded;
+        letter-spacing: 3px;
+      }
+
+      a {
+        text-align: center;
+        font-size: 10px;
+        color: #3498db;
+        
+        
+        
+      }
+
+      button {
+        background: #02363d;
+        border:none;
+        color: white;
+        font-size: 18px;
+        font-weight: 200;
+        cursor: pointer;
+        transition: box-shadow .4s ease;
+        
+        
+      }
+
+      button:hover {
+        box-shadow: 1px 1px 5px #555;  
+      }
+        
+      button:active {
+          box-shadow: 1px 1px 7px #222;  
+      }
+      
+
+      .form {
+        padding-top: 20px;
+        
+      }
+      
+.login-wrap {
+    position: relative;
+    margin: 0 auto;
+    background: #05221c;
+    width: 350px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px #333;
+    padding: 1px;
+    margin-top: 5em;
+    
+    
+  }
+
+.warning {
+    text-align: center;
+    font-size: 20px;
+    color: #ffffff;
+    margin: auto;
+    
+}
+  

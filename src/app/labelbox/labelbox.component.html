@@ -1,0 +1,8 @@
+<div style="margin-top: 20px;">
+<span (click) = "tagClicked()"> {{tag}} </span>
+<div class = "row">
+    <button *ngIf="clicked" (click) = "filter()">Filter</button>
+    <button *ngIf="clicked" (click) = "removeLabel()">Remove</button>
+    <button *ngIf="clicked" (click) = "closeMenu()">cancel</button>
+</div>
+</div>

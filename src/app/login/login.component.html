@@ -1,0 +1,11 @@
+<div class="login-wrap">
+        
+        <form #logincred="ngForm">
+        <div class="form" >
+          <p>Welcome to </p> <p class = "name">ADMONITIO </p> <p>Login using google to start </p>
+          <button (click)="Auth.googleSignin()"> Login </button>
+          <p class="warning" [style.display]="incorrectflag" >Incorrect credentials</p>
+        </div>
+        </form>
+        
+</div>

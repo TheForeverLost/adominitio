@@ -1,0 +1,32 @@
+<div>
+    <div class="toolbar" role="banner">
+        <span class = "spanner" (click)="goToarchive()">ARCHIVE</span>
+        <div class="spacer"></div>
+        
+        <div class="spacer"></div><span (click) = "Auth.signOut()" class = "spanner">LOGOUT</span>
+    </div>
+    <div class="toolbar" role="banner">
+        <div class="spacer"></div>
+    <button *ngIf="hidebutton" (click)="addNote()">Add Note</button>
+    <p class ="message" *ngIf="hidereset">Filtering : {{ filtermessage }}</p>
+    <button *ngIf="hidereset" (click)="resetfilter()">reset filters</button>
+    <br>
+    
+    <form #data="ngForm" *ngIf = "noteaddmenu">
+            <div class="form row" >
+              <input type="text" [(ngModel)]="Title" placeholder="Enter title" name="title" /><br>
+              <input type="text" [(ngModel)]="Content" placeholder="Enter content" name="content" /><br>
+              <button type="submit" (click)="NoteCreator(data)"> Add </button>
+              <button (click)="closemenu()"> Close </button>
+            </div>
+            </form>
+    <div class="spacer"></div>
+    </div>
+    <p *ngIf = "!nodeexist" ><span>{{ load }}</span></p>
+    <p *ngIf = "pinnedexist"><span>Pinned</span></p>
+    <app-card *ngFor="let pin of pinnedlist" [task] = "pin" (editContent) = "updateLabel($event)" (updateArchive) = "addtoArchive($event)" (updateLabel) = "updateLabel($event)"
+    (alternatePin) = "alternatePin($event)" (deleteNote)="deleteNote($event)" (filtercontent)="filter($event)"></app-card>
+    <p *ngIf = "pinnedexist"><span>Others</span></p>
+    <app-card *ngFor="let todo of tasklist" [task] = "todo" (editContent) = "updateLabel($event)" (updateArchive) = "addtoArchive($event)" (updateLabel) = "updateLabel($event)"
+    (alternatePin) = "alternatePin($event)" (deleteNote)="deleteNote($event)" (filtercontent)="filter($event)"></app-card>
+</div>
