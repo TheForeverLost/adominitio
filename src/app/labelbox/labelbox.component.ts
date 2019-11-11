@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { label } from '../task';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-labelbox',
@@ -12,17 +13,23 @@ export class LabelboxComponent implements OnInit {
   @Output() filterLabel:EventEmitter<label> = new EventEmitter();
   tag:string;
   clicked:boolean;
-  constructor(tag:label) { 
+  archive:boolean;
+  constructor(private router:Router,tag:label) { 
     this.item = tag
     this.tag = tag.tag
   }
 
   ngOnInit() {
     this.tag = this.item.tag
+    if(this.router.url === "/archive"){
+      this.archive = true;
+    }else{
+      this.archive = false;
+    }
   }
   
   tagClicked(){
-    this.clicked = true;
+    this.clicked = this.archive?false:true;
   }
 
   closeMenu(){

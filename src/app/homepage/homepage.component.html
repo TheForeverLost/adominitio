@@ -24,9 +24,14 @@
     </div>
     <p *ngIf = "!nodeexist" ><span>{{ load }}</span></p>
     <p *ngIf = "pinnedexist"><span>Pinned</span></p>
-    <app-card *ngFor="let pin of pinnedlist" [task] = "pin" (editContent) = "updateLabel($event)" (updateArchive) = "addtoArchive($event)" (updateLabel) = "updateLabel($event)"
-    (alternatePin) = "alternatePin($event)" (deleteNote)="deleteNote($event)" (filtercontent)="filter($event)"></app-card>
+    <div class="gallery">
+            <app-card *ngFor="let pin of pinnedlist" [task] = "pin" (editContent) = "updateLabel($event)" (updateArchive) = "addtoArchive($event)" (updateLabel) = "updateLabel($event)"
+            (alternatePin) = "alternatePin($event)" (deleteNote)="deleteNote($event)" (filtercontent)="filter($event)"></app-card>                
+    </div>
     <p *ngIf = "pinnedexist"><span>Others</span></p>
+    <div class="gallery">
+    
     <app-card *ngFor="let todo of tasklist" [task] = "todo" (editContent) = "updateLabel($event)" (updateArchive) = "addtoArchive($event)" (updateLabel) = "updateLabel($event)"
     (alternatePin) = "alternatePin($event)" (deleteNote)="deleteNote($event)" (filtercontent)="filter($event)"></app-card>
+    </div>
 </div>

@@ -7,6 +7,7 @@
     </div>
    
     <p *ngIf = "!nodeexist" ><span>{{ load }} </span></p>
-    
+    <div class = "gallery">
     <app-card *ngFor="let todo of tasklist" [task] = "todo" (editContent)="updateLabel($event)" (updateArchive) = "updateArchive($event)" (updateLabel) = "updateLabel($event)" (deleteNote)="deleteNote($event)"></app-card>
+    </div>
 </div>

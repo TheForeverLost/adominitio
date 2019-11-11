@@ -4,7 +4,7 @@
             
         <div class="form" ><div class = "row">
             <input type = "checkbox" *ngIf = "task.checkbox" [checked] = "task.completed" (change) = "toggle()"/>
-            <p [style.text-decoration] = "textdecoration"  >{{ task.content }}
+            <p [style.text-decoration] = "textdecoration" class="cont" >{{ task.content }}
             </p>
             </div>
             <p class="last">
@@ -12,7 +12,7 @@
             </p>
           
           <div class = "row">
-                <div class="spacer"></div>
+                
             <button *ngIf="!task.archive" (click) = "edit()"> Edit </button>
             <button *ngIf="!task.archive"(click) = "setPinned(task)"> {{ pinbutton }} </button>
             <button (click) = "openColorMenu()"> Color </button>
@@ -20,7 +20,7 @@
             <button *ngIf="!task.archive"(click) = "checkbox()"> {{ todobox }} </button>
             <button (click) = "archive(task)"> {{ archivebutton }} </button>
             <button (click) = "deleteTask(task)"> Delete </button>
-          <div class="spacer"></div>  
+            
         </div>
         <form #data="ngForm" [style.display] = "editable">
                 <div class="form row" >
@@ -31,7 +31,7 @@
                 </div>
                 </form>
         <form [style.display] = "colorMenu">
-                <div class="form row2" >
+                <div class="form row" >
                     <button [style.background] = "option[0]" (click) = "setColor(option[0])">1</button>
                     <button [style.background] = "option[1]" (click) = "setColor(option[1])">2</button>
                     <button [style.background] = "option[2]" (click) = "setColor(option[2])">3</button>
@@ -40,7 +40,7 @@
                   </div>
                   </form>
         <form #labeldata="ngForm" [style.display] = "labelmenu">
-                    <div class="form row2" >
+                    <div class="form row" >
                       <input type="text" [(ngModel)] = "Content" placeholder="Enter Label" name="label" />
                       <button type="submit" (click)="addLabel(labeldata)"> Add </button>
                       <button (click)="closeeditter()"> Close </button>

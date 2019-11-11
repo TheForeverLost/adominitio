@@ -27,7 +27,7 @@ export class CardComponent implements OnInit {
   archivebutton:string;
   textdecoration:string;
   newlabel:string;
-  option:string[] =   ["#360303" , "#150753" , "#002536" , "#cc7c0c"]
+  option:string[] =   ["#a82323" , "#150753" , "#002536" , "#cc7c0c"]
   labels:label[];
   constructor(task:Task ,router:Router ) { 
     this.task = task;
@@ -70,9 +70,8 @@ export class CardComponent implements OnInit {
   }
 
   update(Data:NgForm){
-      this.task.title = isNull(Data.value.title)?Data.value.title:this.task.title
-      this.task.content = isNull(Data.value.content)?Data.value.content:this.task.content
-      
+      this.task.title = isNull(Data.value.title)?this.task.title:Data.value.title
+      this.task.content = isNull(Data.value.content)?this.task.content:Data.value.content
       Data.resetForm()
       this.editContent.emit(this.task);
       this.closeeditter()

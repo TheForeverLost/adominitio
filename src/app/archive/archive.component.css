@@ -43,6 +43,15 @@
   
   
 }
+ 
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(9, fit-content);
+  grid-gap: 15px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
 
 span {
   margin: 10px;
