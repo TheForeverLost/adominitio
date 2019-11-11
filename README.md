@@ -8,7 +8,7 @@ Some of its features are :
 - adding tags and filtering notes by tag
 
 ## screenshot 
-[Screenshot loading...](https://raw.githubusercontent.com/TheForeverLost/adominitio/blob/master/Screenshot_2019-11-11_Admonitio.png)
+[Screenshot loading...](Screenshot_2019-11-11_Admonitio.png)
 
 ## coming soon
 - image functionality
