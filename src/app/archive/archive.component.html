@@ -8,5 +8,5 @@
    
     <p *ngIf = "!nodeexist" ><span>{{ load }} </span></p>
     
-    <app-card *ngFor="let todo of tasklist" [task] = "todo" (updateArchive) = "updateArchive($event)" (updateLabel) = "updateLabel($event)" (deleteNote)="deleteNote($event)"></app-card>
+    <app-card *ngFor="let todo of tasklist" [task] = "todo" (editContent)="updateLabel($event)" (updateArchive) = "updateArchive($event)" (updateLabel) = "updateLabel($event)" (deleteNote)="deleteNote($event)"></app-card>
 </div>

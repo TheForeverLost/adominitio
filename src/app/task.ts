@@ -13,6 +13,7 @@ export class Task {
     color:string;
     label:label[];
     user:string;
+    completed?:boolean;
 }
 
 @Injectable({

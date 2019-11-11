@@ -2,17 +2,22 @@
   <h3>{{ task.title }}</h3>
        
             
-        <div class="form" >
-            <p>{{ task.content }}
-              <br><br>
+        <div class="form" ><div class = "row">
+            <input type = "checkbox" *ngIf = "task.checkbox" [checked] = "task.completed" (change) = "toggle()"/>
+            <p [style.text-decoration] = "textdecoration"  >{{ task.content }}
+            </p>
+            </div>
+            <p class="last">
               <app-labelbox *ngFor = "let tagitem of labels" [item] = "tagitem" (deleteLabel) = "removelabel($event)" (filterLabel) = "filterbylabel($event)"></app-labelbox>
             </p>
+          
           <div class = "row">
                 <div class="spacer"></div>
             <button *ngIf="!task.archive" (click) = "edit()"> Edit </button>
             <button *ngIf="!task.archive"(click) = "setPinned(task)"> {{ pinbutton }} </button>
             <button (click) = "openColorMenu()"> Color </button>
             <button *ngIf="!task.archive"(click) = "showLabelMenu()"> Add Label </button>
+            <button *ngIf="!task.archive"(click) = "checkbox()"> {{ todobox }} </button>
             <button (click) = "archive(task)"> {{ archivebutton }} </button>
             <button (click) = "deleteTask(task)"> Delete </button>
           <div class="spacer"></div>  

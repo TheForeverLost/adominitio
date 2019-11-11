@@ -22,20 +22,28 @@ export class CardComponent implements OnInit {
   labelmenu:string = "None";
   Title:string;
   Content:string;
+  todobox:string = "";
   colorMenu:string = "None";
   archivebutton:string;
+  textdecoration:string;
   newlabel:string;
   option:string[] =   ["#360303" , "#150753" , "#002536" , "#cc7c0c"]
   labels:label[];
   constructor(task:Task ,router:Router ) { 
     this.task = task;
-    
+    this.todobox = task.checkbox?"Remove to-do":"Make to-do"
   }
   
   ngOnInit() {
     
     this.labels = this.task.label
-
+    this.todobox = this.task.checkbox?"Remove to-do":"Make to-do"
+    this.textdecoration = "None"
+    if (this.task.checkbox) {
+      this.textdecoration = this.task.completed?"line-through":"None"
+    }else{
+      this.task.completed = false;
+    }
     if (this.task.pinned) {
       this.pinbutton = "Unpin";
     }else{
@@ -55,6 +63,12 @@ export class CardComponent implements OnInit {
     this.editable = "Block";
   }
 
+  toggle(){
+    let check:boolean = !this.task.completed
+    this.task.completed = check
+    this.editContent.emit(this.task) 
+  }
+
   update(Data:NgForm){
       this.task.title = isNull(Data.value.title)?Data.value.title:this.task.title
       this.task.content = isNull(Data.value.content)?Data.value.content:this.task.content
@@ -69,7 +83,10 @@ export class CardComponent implements OnInit {
     this.colorMenu = "None"
     this.labelmenu = "None"
   }
-
+  checkbox(){
+    this.task.checkbox = ! this.task.checkbox
+    this.editContent.emit(this.task);
+  }
   setPinned(task:Task){
     this.alternatePin.emit(task)
   }
